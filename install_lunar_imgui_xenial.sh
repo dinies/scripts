@@ -1,25 +1,24 @@
 #!/bin/bash
 set -e
-
 git config --global user.name "dinies"
 git config --global user.email edoardo.ghini@live.it
 mkdir -p ~/catkin_ws/src
 
 #cloning repositories
-git clone https://github.com/dinies/dotfiles.git
-git clone https://github.com/opencv/opencv.git
-git clone  https://github.com/nlohmann/json.git
-git clone https://github.com/dinies/glad.git
-git clone https://github.com/glfw/glfw.git
 cd ~/catkin_ws/src/
 git clone https://gitlab.inria.fr/telemovtop/teletop_gui.git
+cd ~/catkin_ws/src/teletop-gui/
 git checkout dev
+cd ~
+git clone https://github.com/dinies/dotfiles.git
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/nlohmann/json.git
+git clone https://github.com/dinies/glad.git
+git clone https://github.com/glfw/glfw.git
 
 #installing utilities
 sudo apt update
 sudo apt install -y vim tmux gdb silversearcher-ag tree
-
-
 
 #setting-up custom dotfiles
 cd ~/dotfiles/scripts
