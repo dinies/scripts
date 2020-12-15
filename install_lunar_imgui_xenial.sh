@@ -7,7 +7,7 @@ mkdir -p ~/catkin_ws/src
 #cloning repositories
 cd ~/catkin_ws/src/
 git clone https://gitlab.inria.fr/telemovtop/teletop_gui.git
-cd ~/catkin_ws/src/teletop-gui/
+cd ~/catkin_ws/src/teletop_gui/
 git checkout dev
 cd ~
 git clone https://github.com/dinies/dotfiles.git
