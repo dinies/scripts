@@ -8,6 +8,7 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src/
 git clone https://gitlab.inria.fr/telemovtop/teletop_gui.git
 git clone https://gitlab.inria.fr/telemovtop/robotdart_module.git
+git clone https://gitlab.inria.fr/telemovtop/rooftop-telesim.git
 cd ~
 git clone https://github.com/dinies/dotfiles.git
 git clone https://github.com/opencv/opencv.git
@@ -17,7 +18,7 @@ git clone https://github.com/glfw/glfw.git
 
 #installing utilities
 sudo apt update
-sudo apt install -y vim tmux gdb silversearcher-ag tree
+sudo apt install -y vim tmux gdb silversearcher-ag tree cmake-curses-gui
 
 #setting-up custom dotfiles
 cd ~/dotfiles/scripts
@@ -77,4 +78,17 @@ rm -rf ~/opencv
 rm -rf ~/json
 rm -rf ~/glfw
 
+#add-rooftop-urdf-to-robot-dart
+mv ~/rooftop-telesim/robot/rooftop ~/robot-dart/robots
+cd ~/robot-dart
+./waf
+./waf install
+
+
+#recompile-inria_wbc-without-example-
+cd ~/inria_wbc/build
+rm -rf *
+cmake -DCMAKE_INSTALL_PREFIX=/home/user/install -DCOMPILE_ROBOT_DART_EXAMPLE=OFF ..
+make -j
+sudo make install
 
