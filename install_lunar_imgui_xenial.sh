@@ -8,8 +8,9 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src/
 git clone https://gitlab.inria.fr/telemovtop/teletop_gui.git
 git clone https://gitlab.inria.fr/telemovtop/robotdart_module.git
-git clone https://gitlab.inria.fr/telemovtop/rooftop-telesim.git
+git clone https://gitlab.inria.fr/telemovtop/teletop_controller.git
 cd ~
+git clone https://gitlab.inria.fr/telemovtop/rooftop-telesim.git
 git clone https://github.com/dinies/dotfiles.git
 git clone https://github.com/opencv/opencv.git
 git clone https://github.com/nlohmann/json.git
@@ -79,13 +80,14 @@ rm -rf ~/json
 rm -rf ~/glfw
 
 #add-rooftop-urdf-to-robot-dart
-mv ~/rooftop-telesim/robot/rooftop ~/robot-dart/robots
-cd ~/robot-dart
+mv ~/rooftop-telesim/robots/rooftop ~/robot_dart/robots
+cd ~/robot_dart
 ./waf
 ./waf install
 
 
 #recompile-inria_wbc-without-example-
+git checkout mydev_refactorinit
 cd ~/inria_wbc/build
 rm -rf *
 cmake -DCMAKE_INSTALL_PREFIX=/home/user/install -DCOMPILE_ROBOT_DART_EXAMPLE=OFF ..
