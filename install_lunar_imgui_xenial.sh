@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#make sure that you have set up the ssh keys for github and gitlab (Readme)
+
 set -e
 git config --global user.name "dinies"
 git config --global user.email edoardo.ghini@live.it
@@ -6,16 +9,17 @@ mkdir -p ~/catkin_ws/src
 
 #cloning repositories
 cd ~/catkin_ws/src/
-git clone https://gitlab.inria.fr/telemovtop/teletop_gui.git
-git clone https://gitlab.inria.fr/telemovtop/robotdart_module.git
-git clone https://gitlab.inria.fr/telemovtop/teletop_controller.git
+git clone git@gitlab.inria.fr:telemovtop/teletop_gui.git
+git clone git@gitlab.inria.fr:telemovtop/robotdart_module.git
+git clone git@gitlab.inria.fr:telemovtop/teletop_controller.git
 cd ~
-git clone https://gitlab.inria.fr/telemovtop/rooftop-telesim.git
-git clone https://github.com/dinies/dotfiles.git
-git clone https://github.com/opencv/opencv.git
-git clone https://github.com/nlohmann/json.git
-git clone https://github.com/dinies/glad.git
-git clone https://github.com/glfw/glfw.git
+git clone git@gitlab.inria.fr:telemovtop/rooftop-telesim.git
+git clone git@github.com:dinies/dotfiles.git
+git clone git@github.com:opencv/opencv.git
+git clone git@github.com:nlohmann/json.git
+git clone git@github.com:dinies/glad.git
+git clone git@github.com:glfw/glfw.git
+
 
 #installing utilities
 sudo apt update
