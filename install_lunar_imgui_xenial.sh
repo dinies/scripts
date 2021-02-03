@@ -95,6 +95,7 @@ cd ~/robot_dart
 
 
 #recompile-inria_wbc-without-example-
+cd ~/inria_wbc
 git pull
 git checkout mydev_refactorinit
 git pull origin mydev_refactorinit
