@@ -22,8 +22,10 @@ touch  ~/.ssh/id_ed25519      ;\
 touch  ~/.ssh/id_ed25529.pub  ;\
 ```
 Then manually copy the content of the ssh key inside the corresponding files
-Finally change the permissions and add the ssh keys to the ssh-agent:
+Finally change the permissions and test the connection to populate the known\_hosts list:
 
 ```bash
 chmod 600 id_ed25519
+ssh -Tv git@github.com
+ssh -Tv git@gitlab.com
 ```

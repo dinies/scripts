@@ -5,6 +5,22 @@
 set -e
 git config --global user.name "dinies"
 git config --global user.email edoardo.ghini@live.it
+
+
+#installing ROS lunar 
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+sudo apt-get update
+
+sudo DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends tzdata
+sudo apt-get install -y ros-lunar-desktop-full
+echo "source /opt/ros/lunar/setup.bash" >> ~/.bashrc
+source /opt/ros/lunar/setup.bash
+sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo rosdep init
+rosdep update
+
+
 mkdir -p ~/catkin_ws/src
 
 #cloning repositories
@@ -22,7 +38,6 @@ git clone git@github.com:glfw/glfw.git
 
 
 #installing utilities
-sudo apt update
 sudo apt install -y vim tmux gdb silversearcher-ag tree cmake-curses-gui
 
 #setting-up custom dotfiles
@@ -32,18 +47,6 @@ echo "alias cm='catkin_make'" >> ~/.bashrc
 echo "wssource() {" >> ~/.bashrc
 echo "  source \$1/devel/setup.bash" >> ~/.bashrc
 echo "}" >> ~/.bashrc
-
-
-#installing ROS lunar 
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-sudo apt-get update
-sudo apt-get install -y ros-lunar-desktop-full
-echo "source /opt/ros/lunar/setup.bash" >> ~/.bashrc
-source /opt/ros/lunar/setup.bash
-sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
-sudo rosdep init
-rosdep update
 
 #installing opencv
 sudo apt-get install -y gcc g++
