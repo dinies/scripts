@@ -5,6 +5,7 @@
 set -e
 git config --global user.name "dinies"
 git config --global user.email edoardo.ghini@live.it
+git config --global push.default simple
 
 
 #installing ROS lunar 
