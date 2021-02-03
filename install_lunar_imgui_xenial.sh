@@ -95,7 +95,9 @@ cd ~/robot_dart
 
 
 #recompile-inria_wbc-without-example-
+git pull
 git checkout mydev_refactorinit
+git pull origin mydev_refactorinit
 cd ~/inria_wbc/build
 rm -rf *
 cmake -DCMAKE_INSTALL_PREFIX=/home/user/install -DCOMPILE_ROBOT_DART_EXAMPLE=OFF ..
