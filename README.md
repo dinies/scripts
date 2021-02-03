@@ -27,5 +27,5 @@ Finally change the permissions and test the connection to populate the known\_ho
 ```bash
 chmod 600 ~/.ssh/id_ed25519	      
 ssh -Tv git@github.com	      
-ssh -Tv git@gitlab.com
+ssh -Tv git@gitlab.inria.fr
 ```
