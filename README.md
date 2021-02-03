@@ -16,8 +16,7 @@ Then add the key in the website.
 
 ### Import existing one
 ```bash
-cd ~                          ;\
-mkdir .ssh                    ;\
+mkdir  ~/.ssh                 ;\
 touch  ~/.ssh/id_ed25519      ;\
 touch  ~/.ssh/id_ed25519.pub  
 ```
