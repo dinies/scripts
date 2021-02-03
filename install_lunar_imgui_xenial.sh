@@ -95,6 +95,7 @@ cd ~/robot_dart
 
 
 #recompile-inria_wbc-without-example-
+cd ~/inria_wbc
 git checkout mydev_refactorinit
 cd ~/inria_wbc/build
 rm -rf *
