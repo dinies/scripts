@@ -25,12 +25,12 @@ echo "  source \$1/devel/setup.bash" >> ~/.bashrc
 echo "}" >> ~/.bashrc
 
 # Cmake latest version 
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | \
-  gpg --dearmor - | \
-  sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null && \
-  sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main' && \
-  sudo apt update && \
-  sudo apt install -y \
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | \
+gpg --dearmor - | \
+sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+sudo apt update && \
+sudo apt install -y \
   cmake \
   cmake-curses-gui
 
@@ -44,23 +44,26 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' \
 sudo apt-get update && \
 sudo DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends tzdata && \
 sudo apt-get install -y ros-melodic-desktop-full && \
-echo "source /opt/ros/melodic/setup.bash" >> /home/$USERNAME/.bashrc && \
-source /opt/ros/melodic/setup.bash && \ 
-sudo apt install -y \ 
+
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc 
+
+source /opt/ros/melodic/setup.bash 
+
+sudo apt install -y \
   python-rosdep \
   python-rosinstall \
   python-rosinstall-generator \
   python-wstool \
-  build-essential && \
-sudo rosdep init && \
+  build-essential
+sudo rosdep init
 rosdep update
 
 # installing opencv 
-mkdir -p ~/opencv/build && \
-cd ~/opencv/build && \
+mkdir -p ~/opencv/build 
+cd ~/opencv/build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
-  -D CMAKE_INSTALL_PREFIX=/usr/local .. && \
-make -j$((`nproc`-2)) && \
+  -D CMAKE_INSTALL_PREFIX=/usr/local .. 
+make -j$((`nproc`-2))
 sudo make install
 
 
@@ -68,8 +71,8 @@ sudo make install
 rm -rf ~/opencv
 
 #add-rooftop-urdf-and-prototype-to-robot-dart
-mv ~/rooftop-telesim/robots/rooftop ~/robot_dart/robots && \
-mv ~/rooftop-telesim/robots/prototype ~/robot_dart/robots && \
-cd ~/robot_dart &&\
-./waf &&\
+mv ~/rooftop-telesim/robots/rooftop ~/robot_dart/robots
+mv ~/rooftop-telesim/robots/prototype ~/robot_dart/robots
+cd ~/robot_dart
+./waf
 ./waf install
