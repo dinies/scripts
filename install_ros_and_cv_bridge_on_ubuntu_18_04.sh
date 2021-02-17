@@ -6,15 +6,15 @@ mkdir -p ~/catkin_ws/src
 
 #cloning repositories
 cd ~/catkin_ws/src/
-git clone git@gitlab.inria.fr/telemovtop/robotdart_module.git
-git clone git@gitlab.inria.fr/telemovtop/teletop_controller.git
+git clone git@gitlab.inria.fr:telemovtop/robotdart_module.git
+git clone git@gitlab.inria.fr:telemovtop/teletop_controller.git
 cd ~
-git clone git@gitlab.inria.fr/telemovtop/rooftop-telesim.git
-git clone git@github.com/dinies/dotfiles.git
-git clone git@github.com/opencv/opencv.git
+git clone git@gitlab.inria.fr:telemovtop/rooftop-telesim.git
+git clone git@github.com:dinies/dotfiles.git
+git clone git@github.com:opencv/opencv.git
 
 #installing utilities
-sudo apt update && apt install -y vim tmux gdb silversearcher-ag tree 
+sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree 
 
 #setting-up custom dotfiles
 cd ~/dotfiles/scripts
