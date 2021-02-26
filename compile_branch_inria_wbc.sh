@@ -1,15 +1,21 @@
 #!/bin/bash
 set -e
 
+home_path=/home/$USERNAME
+cd $home_path/inria_wbc
+
 if [[  $# -eq 0 ]]
-  echo "param branch name required. Example : $  ./compile_branch_inria_wbc.sh devel"
-  exit 1
+then
+  echo "param branch name required. Example : $  ./compile\_branch\_inria\_wbc.sh devel"
+  echo "branches to choose from are:"
+  BRANCHES=$(git branch -r)
+  echo "$BRANCHES"
+  exit 0
 fi
 
-branch_name="$1"
-home_path=/home/$USERNAME
 
-cd $home_path/inria_wbc
+branch_name="$1"
+
 git checkout $branch_name
 cd build
 rm -rf *
