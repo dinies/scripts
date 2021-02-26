@@ -2,7 +2,7 @@
 set -e
 
 if [[  $# -eq 0 ]]
-  echo 'param branch name required. Example : $  ./compile_branch_inria_wbc.sh devel '
+  echo "param branch name required. Example : $  ./compile_branch_inria_wbc.sh devel"
   exit 1
 fi
 
