@@ -20,6 +20,8 @@ sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree
 cd ~/dotfiles/scripts
 ./set_up.sh
 echo "alias cm='catkin_make'" >> ~/.bashrc
+echo "alias cmtb='catkin_make tests'" >> ~/.bashrc
+echo "alias cmt='catkin_make test'" >> ~/.bashrc
 echo "wssource() {" >> ~/.bashrc
 echo "  source \$1/devel/setup.bash" >> ~/.bashrc
 echo "}" >> ~/.bashrc
