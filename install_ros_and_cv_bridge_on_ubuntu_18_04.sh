@@ -10,7 +10,6 @@ git clone git@gitlab.inria.fr:telemovtop/robotdart_module.git
 git clone git@gitlab.inria.fr:telemovtop/teletop_controller.git
 cd ~
 git clone git@gitlab.inria.fr:telemovtop/rooftop-telesim.git
-git clone git@gitlab.inria.fr:telemovtop/proto_urdf.git
 git clone git@github.com:dinies/dotfiles.git
 git clone git@github.com:opencv/opencv.git
 
@@ -75,7 +74,7 @@ rm -rf ~/opencv
 
 #add-rooftop-urdf-and-prototype-to-robot-dart
 cp -R ~/rooftop-telesim/robots/rooftop ~/robot_dart/robots
-cp -R ~/proto_urdf/prototype ~/robot_dart/robots
+cp -R ~/rooftop-telesim/robots/prototype ~/robot_dart/robots
 cd ~/robot_dart
 ./waf
 ./waf install
