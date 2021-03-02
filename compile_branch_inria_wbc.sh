@@ -6,7 +6,7 @@ cd $home_path/inria_wbc
 
 if [[  $# -eq 0 ]]
 then
-  echo "param branch name required. Example : $  ./compile\_branch\_inria\_wbc.sh devel"
+  echo "param branch name required. Example : $  ./compile_branch_inria_wbc.sh devel"
   echo "branches to choose from are:"
   BRANCHES=$(git branch -r)
   echo "$BRANCHES"
