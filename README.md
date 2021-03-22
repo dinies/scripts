@@ -25,7 +25,8 @@ Then manually copy the content of the ssh key inside the corresponding files
 Finally change the permissions and test the connection to populate the known\_hosts list:
 
 ```bash
-chmod 600 ~/.ssh/id_ed25519	      
+chmod 600 ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/id_ed25519.pub   
 ssh -Tv git@github.com	      
 ssh -Tv git@gitlab.inria.fr
 ssh -Tv git@gitlab.com

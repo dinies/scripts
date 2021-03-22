@@ -8,6 +8,7 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src/
 git clone git@gitlab.inria.fr:telemovtop/robotdart_module.git
 git clone git@gitlab.inria.fr:telemovtop/teletop_controller.git
+git clone git@gitlab.inria.fr:telemovtop/teletop_msgs.git
 cd ~
 git clone git@gitlab.inria.fr:telemovtop/rooftop-telesim.git
 git clone git@github.com:dinies/dotfiles.git
