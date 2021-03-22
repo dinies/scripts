@@ -8,6 +8,7 @@ if [[  $# -eq 0 ]]
 then
   echo "param branch name required. Example : $  ./compile_branch_inria_wbc.sh devel"
   echo "branches to choose from are:"
+  git pull
   BRANCHES=$(git branch -r)
   echo "$BRANCHES"
   exit 0
