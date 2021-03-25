@@ -81,8 +81,8 @@ cp -R ~/rooftop-telesim/robots/prototype ~/robot_dart/robots
 #update inria_wbc
 cd ~/inria_wbc
 git remote set-url origin git@github.com:resibots/inria_wbc.git
-git checkout no_float_base_dev #soon this branch will be merged into devel
 git pull
+git checkout no_float_base_dev #soon this branch will be merged into devel
 cd ~/inria_wbc/build
 rm -rf *
 cmake  -D CMAKE_PREFIX_PATH=~/install -D CMAKE_BUILD_TYPE=Release  -D CMAKE_INSTALL_PREFIX=~/install ..
