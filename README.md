@@ -12,7 +12,7 @@ git config --global push.default simple
 The key name should be one of the predefined ones (one for each encoding).
 If not then the key would not be offered automatically.
 ```bash
-ssh-keygen -t ed25519 -C "dinies@foo.com" -f ~/.ssh/id_ed25519
+ssh-keygen -t ed25519 -C "bar@foo.com" -f ~/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```

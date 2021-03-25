@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
-git config --global user.name "dinies"
-git config --global user.email edoardo.ghini@live.it
-mkdir -p ~/catkin_ws/src
 
+mkdir -p ~/catkin_ws/src
 #cloning repositories
 cd ~/catkin_ws/src/
 git clone git@gitlab.inria.fr:telemovtop/robotdart_module.git
@@ -19,7 +17,6 @@ sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree
 
 #setting-up custom dotfiles
 cd ~/dotfiles/scripts
-./set_up.sh
 echo "alias cm='catkin_make'" >> ~/.bashrc
 echo "alias cmtb='catkin_make tests'" >> ~/.bashrc
 echo "alias cmt='catkin_make test'" >> ~/.bashrc
@@ -73,9 +70,23 @@ sudo make install
 #clean-up
 rm -rf ~/opencv
 
-#add-rooftop-urdf-and-prototype-to-robot-dart
+#update and add-rooftop-urdf-and-prototype-to-robot-dart
+cd ~/robot_dart
+git pull
 cp -R ~/rooftop-telesim/robots/rooftop ~/robot_dart/robots
 cp -R ~/rooftop-telesim/robots/prototype ~/robot_dart/robots
-cd ~/robot_dart
 ./waf
 ./waf install
+
+#update inria_wbc
+cd ~/inria_wbc
+git remote set-url origin git@github.com:resibots/inria_wbc.git
+git checkout no_float_base_dev #soon this branch will be merged into devel
+git pull
+cd ~/inria_wbc/build
+rm -rf *
+cmake  -D CMAKE_PREFIX_PATH=~/install -D CMAKE_BUILD_TYPE=Release  -D CMAKE_INSTALL_PREFIX=~/install ..
+make -j$((`nproc`-2))
+sudo make install
+
+
