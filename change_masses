@@ -1,0 +1,20 @@
+#! /usr/bin/awk -f
+
+
+# Script that changes the mass values inside an urdf file
+# multuplying for the scale value given as parameter
+# example of usage-> $  ./change_masses -v scale_value=0.6 bar.urdf >> foo.urdf
+
+/mass value/ {
+  split($2, vec, /"/)
+  for (idx in vec){
+    if (vec[idx] ~ /[0-9]+/){
+      mass_idx = idx
+    }
+  }
+  sub(/[0-9]+\.[0-9]+/, vec[mass_idx]*scale_value)
+  print
+}
+$0 !~ /mass value/{
+  print 
+  }

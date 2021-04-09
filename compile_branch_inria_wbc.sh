@@ -21,6 +21,6 @@ git checkout $branch_name
 cd build
 rm -rf *
 cmake  -D CMAKE_PREFIX_PATH=$home_path/install -D CMAKE_INSTALL_PREFIX=$home_path/install -D CMAKE_BUILD_TYPE=Release ..
-make -j10
+make -j$((`nproc`-2))
 sudo make install
 cd $home_path
