@@ -5,6 +5,8 @@
 # multuplying for the scale value given as parameter
 # example of usage-> $  ./change_masses -v scale_value=0.6 bar.urdf >> foo.urdf
 
+# check what is the relevant field (in this case is the $2 but can be any)
+# it depends on the structure of the sentence (if there are extra spaces for example)
 /mass value/ {
   split($2, vec, /"/)
   for (idx in vec){
