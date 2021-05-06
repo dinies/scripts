@@ -11,6 +11,7 @@ cd ~
 git clone git@gitlab.inria.fr:telemovtop/rooftop-telesim.git
 git clone git@github.com:dinies/dotfiles.git
 git clone git@github.com:opencv/opencv.git
+git clone git@github.com:nlohmann/json.git
 
 #installing utilities
 sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree 
@@ -66,9 +67,16 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 make -j$((`nproc`-2))
 sudo make install
 
+# installing nlohmann/json
+mkdir -p ~/json/build 
+cd ~/json/build
+cmake .. 
+make -j$((`nproc`-2))
+sudo make install
 
 #clean-up
 rm -rf ~/opencv
+rm -rf ~/json
 
 #update and add-rooftop-urdf-and-prototype-to-robot-dart
 cd ~/robot_dart
