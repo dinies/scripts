@@ -35,6 +35,15 @@ sudo apt install -y \
   cmake \
   cmake-curses-gui
 
+# Upgrade gcc compiler to gcc-10 
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+sudo apt update && \
+sudo apt install -y gcc-10 g++-10 && \
+sudo update-alternatives \
+  --install /usr/bin/gcc gcc /usr/bin/gcc-10 20 \
+  --slave /usr/bin/g++ g++ /usr/bin/g++-10
+
+
 
 
 #installing ROS 
