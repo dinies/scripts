@@ -17,7 +17,6 @@ git clone git@github.com:nlohmann/json.git
 sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree 
 
 #setting-up custom dotfiles
-cd ~/dotfiles/scripts
 echo "alias cm='catkin_make'" >> ~/.bashrc
 echo "alias cmtb='catkin_make tests'" >> ~/.bashrc
 echo "alias cmt='catkin_make test'" >> ~/.bashrc
