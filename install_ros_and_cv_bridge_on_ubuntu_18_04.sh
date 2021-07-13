@@ -91,6 +91,7 @@ cd ~/robot_dart
 git pull
 cp -R ~/rooftop-telesim/robots/rooftop ~/robot_dart/robots
 cp -R ~/rooftop-telesim/robots/prototype ~/robot_dart/robots
+./waf configure --prefix=~/install --shared
 ./waf
 ./waf install
 
