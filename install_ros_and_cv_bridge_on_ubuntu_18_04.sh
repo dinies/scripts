@@ -12,9 +12,10 @@ git clone git@gitlab.inria.fr:telemovtop/rooftop-telesim.git
 git clone git@github.com:dinies/dotfiles.git
 git clone git@github.com:opencv/opencv.git
 git clone git@github.com:nlohmann/json.git
+git clone git@github.com:resibots/format_code.git
 
 #installing utilities
-sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree 
+sudo apt update && sudo apt install -y vim tmux gdb silversearcher-ag tree clang-format
 
 #setting-up custom dotfiles
 echo "alias cm='catkin_make'" >> ~/.bashrc
@@ -82,9 +83,13 @@ cmake ..
 make -j$((`nproc`-2))
 sudo make install
 
+#clang-format
+cp ~/format_code/.clang-format ~/
+
 #clean-up
 rm -rf ~/opencv
 rm -rf ~/json
+rm -rf ~/format_code
 
 #update and add-rooftop-urdf-and-prototype-to-robot-dart
 cd ~/robot_dart
