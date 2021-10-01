@@ -85,6 +85,8 @@ sudo make install
 
 #clang-format
 cp ~/format_code/.clang-format ~/
+clang-format -style=google -dump-config > catkin_ws/.clang-format
+#cmd to apply the formatting:  find . -regex '.*\.\(cpp\|hpp\|cu\|c\|h\)' -exec clang-format -style=google -i {} \;
 
 #clean-up
 rm -rf ~/opencv
